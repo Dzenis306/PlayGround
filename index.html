@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#173f35">
+  <title>IRONBLOOM — Big Lifts. Small Boss.</title>
+  <meta name="description" content="Mia is 12. She runs the strongest little gym in town. Train clients, keep the floor spotless, and build the neighborhood's next great gym.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23173f35'/%3E%3Ccircle cx='16' cy='16' r='10' fill='%23ff6b57'/%3E%3Cpath d='M10 16h12M12 12v8M20 12v8' stroke='%23fff8e9' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="intro" class="intro">
+    <div class="intro-grain" aria-hidden="true"></div>
+    <div class="intro-orbit intro-orbit-a" aria-hidden="true"></div>
+    <div class="intro-orbit intro-orbit-b" aria-hidden="true"></div>
+    <div class="intro-shell">
+      <div class="intro-copy">
+        <div class="intro-kicker"><span class="kicker-dot"></span> A TINY GYM MANAGEMENT GAME</div>
+        <h1 class="intro-title"><span>BIG LIFTS.</span><span class="title-accent">SMALL BOSS.</span></h1>
+        <p class="intro-lede">Mia is 12. She just spent her summer savings on the keys to a dusty neighborhood gym. Now she has <strong>10 days</strong> to train the block, keep the lights on, and turn it into the strongest little gym in town.</p>
+        <div class="feature-row" aria-label="Game features">
+          <div class="feature-card">
+            <span class="feature-icon" data-icon="dumbbell"></span>
+            <div><strong>Coach</strong><span>Read goals. Call the set.</span></div>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon" data-icon="spark"></span>
+            <div><strong>Run the floor</strong><span>Clean, repair, promote.</span></div>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon" data-icon="grow"></span>
+            <div><strong>Build the dream</strong><span>Earn stars. Expand.</span></div>
+          </div>
+        </div>
+        <div class="intro-actions">
+          <button id="startGame" class="btn btn-coral btn-xl">Start game <span class="btn-arrow" data-icon="arrow"></span></button>
+          <button id="howTo" class="btn btn-ghost btn-xl">How to play</button>
+        </div>
+        <p class="intro-footnote">Strict training. Soft landing. Everyone leaves stronger.</p>
+      </div>
+
+      <div class="intro-art" aria-hidden="true">
+        <div class="hero-sun"></div>
+        <div class="hero-grid"></div>
+        <div class="hero-frame">
+          <svg class="hero-svg" viewBox="0 0 460 560" role="img" aria-label="Mia, a twelve-year-old gym owner, holding a clipboard">
+            <defs>
+              <linearGradient id="jacketGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ff8068"/>
+                <stop offset="1" stop-color="#ee5949"/>
+              </linearGradient>
+              <linearGradient id="pantsGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#2f8e7a"/>
+                <stop offset="1" stop-color="#1f6d60"/>
+              </linearGradient>
+              <linearGradient id="shoeGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#fffaf0"/>
+                <stop offset="1" stop-color="#f2dfbd"/>
+              </linearGradient>
+            </defs>
+
+            <circle cx="230" cy="245" r="198" fill="#ffc857"/>
+            <circle cx="230" cy="245" r="168" fill="none" stroke="#173f35" stroke-width="3" stroke-dasharray="4 12" opacity=".38"/>
+            <path d="M78 190c34-96 115-150 218-137 74 9 131 62 149 129" fill="none" stroke="#173f35" stroke-width="3" opacity=".16"/>
+            <path d="M48 332c35 85 109 144 196 151" fill="none" stroke="#173f35" stroke-width="3" opacity=".16"/>
+
+            <ellipse cx="230" cy="510" rx="138" ry="26" fill="#173f35" opacity=".16"/>
+
+            <g stroke="#173f35" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+              <!-- back arm -->
+              <path d="M287 282c28 13 40 41 27 63-9 15-25 21-40 17" fill="#f6a07e"/>
+              <path d="M290 278c17 8 27 25 24 39" fill="none" stroke="#d64d40" stroke-width="22"/>
+
+              <!-- legs -->
+              <path d="M190 360c-2 42-1 84 4 126" fill="none" stroke="#173f35" stroke-width="47"/>
+              <path d="M190 360c-2 42-1 84 4 126" fill="none" stroke="url(#pantsGrad)" stroke-width="38"/>
+              <path d="M272 360c3 43 1 85-7 126" fill="none" stroke="#173f35" stroke-width="47"/>
+              <path d="M272 360c3 43 1 85-7 126" fill="none" stroke="url(#pantsGrad)" stroke-width="38"/>
+
+              <!-- shoes -->
+              <path d="M170 483c19-4 45-4 62 0 10 3 12 11 4 16-18 11-54 12-75 5-9-3-8-16 9-21Z" fill="url(#shoeGrad)"/>
+              <path d="M253 483c17-4 43-4 59 0 17 5 18 18 8 21-22 7-57 6-75-5-8-5-6-13 8-16Z" fill="url(#shoeGrad)"/>
+              <path d="M171 493c17 5 38 7 56 4M259 493c15 4 34 4 49 1" fill="none" stroke="#ff6b57" stroke-width="5"/>
+
+              <!-- torso -->
+              <path d="M182 236c10-14 32-23 53-23 28 0 52 12 58 32 8 26 9 68 4 108-4 29-16 43-40 47-23 3-55 2-75-6-17-7-23-23-24-47-1-35 3-82 24-111Z" fill="url(#jacketGrad)"/>
+              <path d="M218 218c5 18 6 45 3 69-3 22-4 64 1 97" fill="none" stroke="#d64d40" stroke-width="3"/>
+              <path d="M252 219c-8 21-10 47-6 72 4 26 4 66 0 94" fill="none" stroke="#d64d40" stroke-width="3"/>
+              <path d="M214 252c-17 4-34 9-49 18-14 9-20 28-12 43 5 9 17 11 25 4 12-10 28-24 40-34" fill="#ff8068"/>
+              <path d="M290 260c16 4 30 14 35 30 5 15-4 31-20 33-11 2-20-6-23-16-4-15-3-30 8-47Z" fill="#ff8068"/>
+
+              <!-- shirt -->
+              <path d="M222 220c8 5 19 8 30 7 8 0 15-2 21-6 7 10 9 26 4 42-5 17-13 27-27 28-15 1-25-7-31-22-6-16-6-35 3-49Z" fill="#d9f0df"/>
+              <path d="M235 236c5 3 12 3 17 0" fill="none" stroke="#173f35" stroke-width="3" opacity=".35"/>
+              <path d="M242 258l-4 15 8 1" fill="none" stroke="#ff6b57" stroke-width="4"/>
+              <circle cx="242" cy="282" r="7" fill="#ffc857" stroke="#173f35" stroke-width="3"/>
+
+              <!-- jacket collar & zip -->
+              <path d="M216 219c8 20 20 31 34 31 12 0 23-9 31-25" fill="none" stroke="#173f35" stroke-width="5"/>
+              <path d="M248 250v95" fill="none" stroke="#173f35" stroke-width="3" opacity=".75"/>
+              <path d="M239 330c5 5 14 5 20 0" fill="none" stroke="#173f35" stroke-width="4"/>
+
+              <!-- front arm + clipboard -->
+              <path d="M196 276c-20 11-31 35-24 57 5 16 20 26 35 24" fill="#f6a07e"/>
+              <path d="M197 274c-17 6-28 22-28 40" fill="none" stroke="#ff8068" stroke-width="23"/>
+              <rect x="136" y="337" width="86" height="112" rx="9" fill="#fffaf0" transform="rotate(-7 179 393)"/>
+              <rect x="136" y="337" width="86" height="112" rx="9" fill="none" stroke="#173f35" stroke-width="5" transform="rotate(-7 179 393)"/>
+              <path d="M152 368h46M152 385h54M152 402h39M152 419h49" fill="none" stroke="#9fc9b9" stroke-width="4" stroke-linecap="round" transform="rotate(-7 179 393)"/>
+              <rect x="158" y="322" width="42" height="17" rx="6" fill="#ffc857" stroke="#173f35" stroke-width="4" transform="rotate(-7 179 393)"/>
+              <path d="M171 347c7 8 19 9 28 2" fill="none" stroke="#173f35" stroke-width="4"/>
+
+              <!-- head -->
+              <path d="M180 161c0-33 24-58 55-58 33 0 56 25 56 59 0 38-22 65-55 65-34 0-56-27-56-66Z" fill="#c87b58"/>
+              <path d="M179 160c-1-35 21-65 55-66 25-1 45 11 54 31-20-6-35 1-45 13-12 15-30 22-64 22Z" fill="#3a2522"/>
+              <path d="M183 140c7-26 28-43 54-45 30-2 53 14 59 39-18-11-37-14-56-8-21 6-40 13-57 14Z" fill="#3a2522"/>
+              <path d="M232 96c-8-26 6-48 27-48 23 0 36 21 27 45-6 17-19 28-34 27-12-1-17-11-20-24Z" fill="#3a2522"/>
+              <path d="M239 63c10-8 27-7 36 3" fill="none" stroke="#173f35" stroke-width="4" opacity=".35"/>
+              <circle cx="256" cy="82" r="14" fill="#ffc857" stroke="#173f35" stroke-width="4"/>
+              <path d="M247 84c5 4 12 5 19 2" fill="none" stroke="#d64d40" stroke-width="3"/>
+
+              <!-- headband -->
+              <path d="M180 144c25 9 75 11 110 1" fill="none" stroke="#ffc857" stroke-width="16"/>
+              <path d="M180 144c25 9 75 11 110 1" fill="none" stroke="#173f35" stroke-width="4"/>
+              <path d="M286 139l18-12 5 15-19 9Z" fill="#ffc857" stroke="#173f35" stroke-width="4"/>
+
+              <!-- face -->
+              <path d="M197 163c6-7 16-7 23 0" fill="none" stroke="#3a2522" stroke-width="4"/>
+              <path d="M251 163c6-7 16-7 23 0" fill="none" stroke="#3a2522" stroke-width="4"/>
+              <ellipse cx="209" cy="173" rx="5" ry="6" fill="#173f35"/>
+              <ellipse cx="263" cy="173" rx="5" ry="6" fill="#173f35"/>
+              <circle cx="211" cy="171" r="1.8" fill="#fffaf0"/>
+              <circle cx="265" cy="171" r="1.8" fill="#fffaf0"/>
+              <path d="M225 199c10 9 22 9 32-1" fill="none" stroke="#173f35" stroke-width="4"/>
+              <path d="M232 200c5 3 10 3 15 0" fill="none" stroke="#fffaf0" stroke-width="2"/>
+              <circle cx="192" cy="191" r="7" fill="#ef8b6e" opacity=".55"/>
+              <circle cx="278" cy="191" r="7" fill="#ef8b6e" opacity=".55"/>
+              <g fill="#8d4d36" opacity=".55">
+                <circle cx="222" cy="188" r="1.4"/><circle cx="229" cy="192" r="1.2"/><circle cx="238" cy="187" r="1.3"/><circle cx="247" cy="192" r="1.1"/>
+              </g>
+
+              <!-- lanyard + whistle -->
+              <path d="M219 229c-1 22 7 43 24 48 17 5 30-9 34-34" fill="none" stroke="#ffc857" stroke-width="5"/>
+              <path d="M277 272c9-2 17 5 16 14-1 8-8 12-15 10-8-2-11-9-8-16 2-4 4-7 7-8Z" fill="#ffc857"/>
+              <circle cx="284" cy="282" r="4" fill="#173f35"/>
+
+              <!-- little jacket patch -->
+              <rect x="259" y="299" width="27" height="22" rx="5" fill="#fffaf0" stroke="#173f35" stroke-width="3"/>
+              <path d="M266 311l5-6 4 5 5-7" fill="none" stroke="#ff6b57" stroke-width="3"/>
+            </g>
+
+            <!-- sticker sparkles -->
+            <g fill="#173f35">
+              <path d="M80 122l6 16 16 6-16 6-6 16-6-16-16-6 16-6Z"/>
+              <path d="M379 318l4 11 11 4-11 4-4 11-4-11-11-4 11-4Z"/>
+            </g>
+            <g fill="#fffaf0">
+              <path d="M116 408l3 8 8 3-8 3-3 8-3-8-8-3 8-3Z"/>
+              <path d="M353 128l4 10 10 4-10 4-4 10-4-10-10-4 10-4Z"/>
+            </g>
+          </svg>
+        </div>
+        <div class="intro-sticker intro-sticker-age"><span>AGE</span><strong>12</strong><span>BOSS</span></div>
+        <div class="intro-sticker intro-sticker-est"><span>EST.</span><strong>TODAY</strong></div>
+        <div class="intro-bubble">“Everyone starts somewhere.<br>You start with <b>7 action points</b>.”</div>
+      </div>
+    </div>
+    <div class="intro-marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>STRICT FORM</span><span>SOFT LANDING</span><span>BIG LIFTS</span><span>SMALL BOSS</span><span>STRICT FORM</span><span>SOFT LANDING</span><span>BIG LIFTS</span><span>SMALL BOSS</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="app" class="app hidden">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" data-icon="logo"></span>
+        <span class="brand-text"><strong>IRONBLOOM</strong><small>MIA'S GYM</small></span>
+      </div>
+
+      <div class="day-block">
+        <span class="eyebrow">DAY</span>
+        <div class="day-number"><b id="dayNum">1</b><span>/ 10</span></div>
+      </div>
+
+      <div class="actions-block">
+        <div class="actions-label"><span>ACTION POINTS</span><b id="timeNum">7</b></div>
+        <div id="timePips" class="time-pips" aria-label="Action points remaining"></div>
+      </div>
+
+      <div class="top-stats">
+        <div class="cash-chip">
+          <span class="coin">$</span>
+          <div><small>BANK</small><strong id="cashNum">$220</strong></div>
+        </div>
+        <div class="rep-chip">
+          <div class="rep-copy"><small>REPUTATION</small><strong id="repNum">★ 1.0</strong></div>
+          <div id="starsMini" class="stars-mini" aria-label="Gym star rating"></div>
+        </div>
+      </div>
+
+      <div class="top-tools">
+        <button id="soundBtn" class="icon-btn" type="button" aria-label="Toggle sound" title="Toggle sound"><span data-icon="sound"></span></button>
+        <button id="helpBtn" class="icon-btn" type="button" aria-label="How to play" title="How to play">?</button>
+      </div>
+    </header>
+
+    <main class="game-layout">
+      <section id="stagePanel" class="stage-panel" aria-label="Gym floor">
+        <canvas id="scene" aria-label="Mia's gym floor. Click a client to train them."></canvas>
+        <div class="stage-top-overlay">
+          <div class="stage-tag"><span class="live-dot"></span> TRAINING FLOOR</div>
+          <div class="stage-clock"><span data-icon="clock"></span> 7:00 AM — 9:00 PM</div>
+        </div>
+        <div class="stage-bottom-overlay">
+          <div class="coach-note">
+            <div id="coachAvatar" class="coach-avatar"></div>
+            <div class="coach-copy"><span>COACH MIA, 12</span><p id="coachTip">Match the focus to the client's goal for a 30% pay bump.</p></div>
+          </div>
+          <div id="dailyGoalCard" class="daily-goal-card">
+            <div class="goal-top"><span>TODAY'S GOAL</span><strong id="goalReward">+$25</strong></div>
+            <p id="goalText">Train 3 clients</p>
+            <div id="goalDots" class="goal-dots"></div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="desk-panel">
+        <div class="desk-head">
+          <div>
+            <span class="eyebrow">FRONT DESK</span>
+            <h2>Today's lineup</h2>
+          </div>
+          <div class="queue-count"><b id="queueCount">3</b><span>waiting</span></div>
+        </div>
+
+        <div id="clientList" class="client-list"></div>
+
+        <section class="note-card" aria-labelledby="noteTitle">
+          <div class="note-head">
+            <span class="note-icon" data-icon="spark"></span>
+            <div class="note-copy">
+              <span class="eyebrow">COACH'S NOTEBOOK</span>
+              <h3 id="noteTitle">Next star</h3>
+            </div>
+            <b id="repProgressLabel">0 / 45</b>
+          </div>
+          <div class="note-track"><div id="repProgressBar" class="note-fill"></div></div>
+          <p id="noteTip">Strict sets build reputation fastest. Hold the window.</p>
+          <div class="note-stats">
+            <div><span>SESSIONS</span><b id="noteSessions">0</b></div>
+            <div><span>PERFECT</span><b id="notePerfect">0</b></div>
+            <div><span>MOOD</span><b id="noteMood">—</b></div>
+          </div>
+        </section>
+
+        <section class="care-card" aria-labelledby="careTitle">
+          <div class="care-head">
+            <h3 id="careTitle">Gym care</h3>
+            <span id="careStatus">Looking good</span>
+          </div>
+          <div class="care-row">
+            <span class="care-icon" data-icon="sparkle"></span>
+            <div class="care-main"><div class="care-label"><span>Cleanliness</span><b id="cleanNum">86%</b></div><div class="care-track"><div id="cleanBar" class="care-fill"></div></div></div>
+          </div>
+          <div class="care-row">
+            <span class="care-icon" data-icon="wrench"></span>
+            <div class="care-main"><div class="care-label"><span>Equipment</span><b id="gearNum">92%</b></div><div class="care-track"><div id="gearBar" class="care-fill"></div></div></div>
+          </div>
+          <div class="care-actions">
+            <button type="button" class="mini-action" data-action="clean"><span data-icon="broom"></span><b>Clean</b><small>1 AP</small></button>
+            <button type="button" class="mini-action" data-action="repair"><span data-icon="wrench"></span><b>Tune-up</b><small>1 AP</small></button>
+            <button type="button" class="mini-action" data-action="promote"><span data-icon="megaphone"></span><b>Post flyer</b><small>$15 · 1 AP</small></button>
+          </div>
+        </section>
+
+        <div class="desk-footer">
+          <button id="upgradeBtn" type="button" class="btn btn-sun"><span data-icon="grow"></span> Renovate <small>shop</small></button>
+          <button id="endDayBtn" type="button" class="btn btn-ink">Close up <span class="btn-arrow" data-icon="arrow"></span></button>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <div id="toastStack" class="toast-stack" aria-live="polite"></div>
+  <div id="modalRoot"></div>
+
+  <script src="data.js"></script>
+  <script src="scene-art.js"></script>
+  <script src="scene.js"></script>
+  <script src="ui.js"></script>
+  <script src="play.js"></script>
+  <script src="training.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
