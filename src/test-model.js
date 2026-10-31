@@ -1,0 +1,15 @@
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { World } from './lib/world.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+const renderer=new THREE.WebGLRenderer({canvas:document.querySelector('#c'),antialias:true});
+renderer.setSize(innerWidth,innerHeight);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=0.8;
+const scene=new THREE.Scene();scene.background=new THREE.Color(0x050008);
+const cam=new THREE.PerspectiveCamera(38,innerWidth/innerHeight,.1,80);cam.position.set(0,2.02,7.9);cam.lookAt(.18,2.02,0);
+const world=new World(scene,cam,renderer);
+new GLTFLoader().load('/models/celestara.glb',(gltf)=>{const m=gltf.scene;m.traverse(o=>{if(o.isMesh){o.material=new THREE.MeshPhysicalMaterial({color:0xffd6f0,map:o.material.map,metalness:.55,roughness:.18,clearcoat:1,clearcoatRoughness:.06,iridescence:1,iridescenceIOR:1.5,envMapIntensity:1.8,emissive:0x3d072b,emissiveIntensity:.15});}});scene.add(m);m.updateWorldMatrix(true,true);const box=new THREE.Box3().setFromObject(m);const size=box.getSize(new THREE.Vector3());const center=box.getCenter(new THREE.Vector3());console.log('box',size.toArray(),center.toArray());const s=3.75/size.y;m.scale.setScalar(s);m.position.set(.42,-box.min.y*s,0);});
+const comp=new EffectComposer(renderer);comp.addPass(new RenderPass(scene,cam));comp.addPass(new UnrealBloomPass(new THREE.Vector2(innerWidth,innerHeight),.55,.6,1.0));comp.addPass(new OutputPass());
+let t=0;renderer.setAnimationLoop(()=>{world.update(.016,t);t+=.016;comp.render();});

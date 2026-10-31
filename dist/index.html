@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#08000f" />
+    <meta
+      name="description"
+      content="OMNI — an interactive 3D hyperpop goddess who can create life, destroy worlds, and change everything."
+    />
+    <title>OMNI — She Can Do Anything</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✦</text></svg>" />
+    <script type="module" crossorigin src="./assets/index-BHP7RwUO.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DHC_Efkw.css">
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="scene" aria-label="A 3D hyperpop goddess floating above a mirrored stage"></canvas>
+
+      <div class="fx-grain" aria-hidden="true"></div>
+      <div class="fx-scanlines" aria-hidden="true"></div>
+      <div class="fx-vignette" aria-hidden="true"></div>
+      <div class="fx-flash" id="flash" aria-hidden="true"></div>
+
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="OMNI home">
+          <span class="brand-glyph">✦</span>
+          <span class="brand-lockup">
+            <strong>OMNI</strong>
+            <small>GODDESS SYSTEM / 001</small>
+          </span>
+        </a>
+
+        <div class="divinity" aria-live="polite">
+          <span class="divinity-orbit"><i></i></span>
+          <span>DIVINITY ONLINE</span>
+          <em id="clock">00:00:00</em>
+        </div>
+
+        <div class="top-actions">
+          <button class="icon-btn sound-btn" id="sound" type="button" aria-pressed="false">
+            <span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            <span id="sound-label">SOUND OFF</span>
+          </button>
+          <button class="icon-btn info-btn" id="info" type="button" aria-label="About OMNI">?</button>
+        </div>
+      </header>
+
+      <main class="interface">
+        <section class="hero-copy" aria-label="Introduction">
+          <p class="eyebrow"><span>01</span> THE UNRESTRICTED ONE</p>
+          <h1>
+            <span class="line line-1">SHE CAN</span>
+            <span class="line line-2">DO</span>
+            <span class="line line-3" data-text="ANYTHING">ANYTHING</span>
+          </h1>
+          <p class="lede">
+            Creator. Destroyer. The variable in every equation.
+            <span>Tap a power and bend the world.</span>
+          </p>
+        </section>
+
+        <aside class="power-dock" aria-label="Divine powers">
+          <div class="dock-head">
+            <span>POWERS</span>
+            <span class="dock-index">01 — 04</span>
+          </div>
+          <div class="dock-line"></div>
+
+          <button class="power" data-power="create" type="button" aria-label="Create life">
+            <span class="power-num">01</span>
+            <span class="power-icon" aria-hidden="true">✺</span>
+            <span class="power-copy"><strong>CREATE LIFE</strong><small>BREATHE SOMETHING NEW</small></span>
+            <span class="power-arrow" aria-hidden="true">↗</span>
+          </button>
+
+          <button class="power" data-power="destroy" type="button" aria-label="Destroy worlds">
+            <span class="power-num">02</span>
+            <span class="power-icon" aria-hidden="true">✕</span>
+            <span class="power-copy"><strong>DESTROY</strong><small>RETURN IT TO DUST</small></span>
+            <span class="power-arrow" aria-hidden="true">↗</span>
+          </button>
+
+          <button class="power" data-power="change" type="button" aria-label="Change reality">
+            <span class="power-num">03</span>
+            <span class="power-icon" aria-hidden="true">◐</span>
+            <span class="power-copy"><strong>CHANGE</strong><small>REWRITE THE REALITY</small></span>
+            <span class="power-arrow" aria-hidden="true">↗</span>
+          </button>
+
+          <button class="power power-all" data-power="everything" type="button" aria-label="Do everything">
+            <span class="power-num">04</span>
+            <span class="power-icon" aria-hidden="true">∞</span>
+            <span class="power-copy"><strong>EVERYTHING</strong><small>WHY CHOOSE?</small></span>
+            <span class="power-arrow" aria-hidden="true">↗</span>
+          </button>
+        </aside>
+
+        <div class="telemetry" aria-hidden="true">
+          <div class="telemetry-ring">
+            <svg viewBox="0 0 100 100">
+              <circle class="ring-bg" cx="50" cy="50" r="44"></circle>
+              <circle class="ring-fill" id="ring" cx="50" cy="50" r="44"></circle>
+            </svg>
+            <div class="telemetry-core">
+              <strong id="power-pct">100</strong><span>%</span>
+            </div>
+          </div>
+          <span>DIVINE OUTPUT</span>
+        </div>
+
+        <div class="transmission" aria-live="polite">
+          <span class="transmission-label">TRANSMISSION <i>//</i> <b id="state-label">IDLE</b></span>
+          <p id="transmission-text">She has been waiting for someone with nerve.</p>
+        </div>
+      </main>
+
+      <footer class="bottombar">
+        <div class="ticker" aria-hidden="true">
+          <div class="ticker-track">
+            <span>CREATE LIFE ✦ DESTROY WORLDS ✦ CHANGE FORM ✦ DO ANYTHING ✦ SHE IS EVERYTHING ✦</span>
+            <span>CREATE LIFE ✦ DESTROY WORLDS ✦ CHANGE FORM ✦ DO ANYTHING ✦ SHE IS EVERYTHING ✦</span>
+          </div>
+        </div>
+        <div class="footer-meta">
+          <span><i class="pulse-dot"></i> REALITY STABLE</span>
+          <span class="footer-hint">DRAG TO ORBIT · 1–4 TO CAST</span>
+          <span>HYPERPOP / DIVINE</span>
+        </div>
+      </footer>
+
+      <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close" id="modal-close" type="button" aria-label="Close">✕</button>
+        <p class="eyebrow"><span>∞</span> SYSTEM NOTES</p>
+        <h2 id="modal-title">She can do <em>anything.</em></h2>
+        <p>
+          OMNI is a small, living shrine to unlimited feminine power. Every pixel is generated in real time:
+          the goddess, her chrome skin, the universe orbiting her, and every lifeform she conjures.
+        </p>
+        <p>
+          Drag the void to orbit. Use the powers to make her create, destroy, and rewrite reality.
+          Nothing here is permanent — that is the point.
+        </p>
+        <div class="modal-keys">
+          <span><kbd>1</kbd> CREATE</span>
+          <span><kbd>2</kbd> DESTROY</span>
+          <span><kbd>3</kbd> CHANGE</span>
+          <span><kbd>4</kbd> EVERYTHING</span>
+        </div>
+      </div>
+
+      <div class="boot" id="boot" aria-hidden="true">
+        <div class="boot-mark">✦</div>
+      </div>
+    </div>
+  </body>
+</html>
