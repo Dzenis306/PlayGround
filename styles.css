@@ -406,6 +406,69 @@ h1 .star {
   color: var(--muted);
 }
 
+.rite {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  margin-top: 14px;
+  color: var(--muted);
+  transition: color 400ms ease;
+}
+
+.rite-label {
+  font-size: 7.5px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+}
+
+.rite-track {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 2px 1px;
+}
+
+.rite-pip {
+  width: 7px;
+  height: 7px;
+  border: 1px solid color-mix(in srgb, var(--cyan) 48%, transparent);
+  transform: rotate(45deg);
+  transition: background-color 320ms ease, border-color 320ms ease, box-shadow 320ms ease;
+}
+
+.rite-pip.is-lit {
+  background: var(--cyan);
+  border-color: var(--cyan);
+  box-shadow: 0 0 9px var(--cyan);
+}
+
+.rite-count {
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  font-variant-numeric: tabular-nums;
+}
+
+.rite.is-complete {
+  color: var(--hot);
+}
+
+.rite.is-complete .rite-pip {
+  background: var(--hot);
+  border-color: var(--hot);
+  box-shadow: 0 0 12px var(--hot);
+}
+
+body.is-ascended .sigil {
+  color: var(--hot);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--hot) 55%, transparent),
+    0 0 26px color-mix(in srgb, var(--hot) 55%, transparent);
+}
+
+body.is-ascended .brand-sub {
+  color: var(--hot);
+}
+
 .caption {
   position: fixed;
   left: 50%;
@@ -910,6 +973,25 @@ body.is-glitching .manifesto h1 {
 
   .stat-label {
     font-size: 6.5px;
+  }
+
+  .rite {
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .rite-label {
+    font-size: 6.5px;
+    letter-spacing: 0.18em;
+  }
+
+  .rite-pip {
+    width: 6px;
+    height: 6px;
+  }
+
+  .rite-count {
+    font-size: 7px;
   }
 
   .backtype {

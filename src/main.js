@@ -21,6 +21,10 @@ const captionText = document.querySelector("#caption-text");
 const flashEl = document.querySelector("#flash");
 const cursorEl = document.querySelector("#cursor");
 const powerButtons = [...document.querySelectorAll(".power")];
+const riteEl = document.querySelector("#rite");
+const riteCountEl = document.querySelector("#rite-count");
+const ritePips = [...document.querySelectorAll(".rite-pip")];
+const brandSub = document.querySelector(".brand-sub");
 
 const isMobile = window.matchMedia("(max-width: 760px), (pointer: coarse)").matches;
 const quality = {
@@ -204,6 +208,8 @@ let eraseTimer = 0;
 let lastSoulCount = -1;
 let cycles = 0;
 let glitchAmount = 0;
+const rites = new Set();
+let ascended = false;
 
 function updateSoundUI() {
   const on = audio.enabled;
@@ -312,9 +318,48 @@ function fireButton(kind) {
   window.setTimeout(() => button.classList.remove("is-firing"), 600);
 }
 
+function markRite(kind) {
+  if (ascended || rites.has(kind)) return;
+  rites.add(kind);
+  ritePips.find((pip) => pip.dataset.rite === kind)?.classList.add("is-lit");
+  riteCountEl.textContent = `${rites.size}/4`;
+  riteEl.setAttribute("aria-label", `Rite of omnipotence, ${rites.size} of 4 powers used`);
+  if (rites.size === 4) {
+    riteEl.classList.add("is-complete");
+    window.setTimeout(ascend, 900);
+  }
+}
+
+function ascend() {
+  if (ascended) return;
+  ascended = true;
+  document.body.classList.add("is-ascended");
+  brandSub.textContent = "ASCENDED";
+  realmEl.textContent = "REALM: EVERYWHERE";
+  riteEl.querySelector(".rite-label").textContent = "OMNIPOTENCE ACHIEVED";
+
+  const origin = getHandPosition().clone();
+  souls.spawn(40, origin, target);
+  souls.recolor(target);
+  bursts.fire(origin, target, 2.1);
+  bursts.fire(centerPosition, target, 1.6);
+  shockwaves.fire(centerPosition, target, 2.8);
+  window.setTimeout(() => shockwaves.fire(centerPosition, target, 2), 160);
+  window.setTimeout(() => shockwaves.fire(centerPosition, target, 1.4), 340);
+  goddess.spin(6.5);
+  goddess.kick(1.4);
+  cameraState.shake = Math.max(cameraState.shake, 2.2);
+  glitch(1.5);
+  screenFlash();
+  audio.ascend();
+  showCaption("ASCENSION", "YOU ARE EVERYTHING", true);
+  updateStats(true);
+}
+
 function doPower(kind) {
   startAudio();
   fireButton(kind);
+  markRite(kind);
 
   if (kind === "create") {
     const origin = getHandPosition().clone();
