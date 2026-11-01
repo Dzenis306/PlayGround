@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
+<meta name="theme-color" content="#12021f" />
+<title>OMNIGODDESS — She Can Do Anything</title>
+<meta name="description" content="An interactive 3D hyperpop deity. She can create life, destroy worlds, and change everything. Touch the altar." />
+<meta property="og:title" content="OMNIGODDESS — She Can Do Anything" />
+<meta property="og:description" content="An interactive 3D hyperpop deity. Create life. Destroy worlds. Change everything." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%23ff4fbf'/%3E%3Cstop offset='.5' stop-color='%23ffe9ff'/%3E%3Cstop offset='1' stop-color='%233fe9ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%2312021f'/%3E%3Cpath d='M32 8l5 17 17 7-17 7-5 17-5-17-17-7 17-7z' fill='url(%23g)'/%3E%3C/svg%3E" />
+<link rel="preload" href="./vendor/fonts/unbounded.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="./vendor/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="./styles.css" />
+<script type="importmap">
+{
+  "imports": {
+    "three": "./vendor/three/three.module.js",
+    "three/addons/": "./vendor/three/addons/"
+  }
+}
+</script>
+</head>
+<body>
+  <canvas id="stage" aria-label="Interactive 3D goddess scene" role="img"></canvas>
+
+  <div class="veil" id="veil" aria-hidden="true">
+    <div class="veil__noise"></div>
+  </div>
+  <div class="flash" id="flash" aria-hidden="true"></div>
+  <div class="glitch" id="glitch" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <div class="cursor" id="cursor" aria-hidden="true"><span></span></div>
+
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Omnigoddess home">
+      <span class="brand__sigil" aria-hidden="true">
+        <svg viewBox="0 0 64 64"><path d="M32 5l5.6 19.2L57 32l-19.4 7.8L32 59l-5.6-19.2L7 32l19.4-7.8z" fill="currentColor"/><circle cx="32" cy="32" r="5" fill="#12021f"/></svg>
+      </span>
+      <span class="brand__text">
+        <span class="brand__name">OMNI<em>GODDESS</em></span>
+        <span class="brand__sub">SHE CAN DO ANYTHING</span>
+      </span>
+    </a>
+
+    <div class="topbar__actions">
+      <span class="live"><i></i> ALTAR LIVE</span>
+      <button class="icon-btn" id="sound-btn" type="button" aria-label="Enable sound" aria-pressed="false" title="Sound (M)">
+        <svg class="icon-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 010 7M19 6a9 9 0 010 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <svg class="icon-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <button class="icon-btn" id="info-btn" type="button" aria-label="How to worship" title="Instructions">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 10.5V17M12 7.4v.2" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <aside class="rail rail--left" aria-hidden="true">
+    <span>OMNIPOTENCE</span>
+    <i></i>
+    <span>EST. ∞</span>
+  </aside>
+
+  <aside class="stickers" aria-hidden="true">
+    <div class="sticker sticker--1"><b>★</b> 100% OMNIPOTENT</div>
+    <div class="sticker sticker--2">∞ / 10</div>
+    <div class="sticker sticker--3">CERTIFIED GOD</div>
+  </aside>
+
+  <div class="hero" aria-hidden="true">
+    <p class="hero__eyebrow">THE ALMIGHTY INTERFACE</p>
+    <h1 class="hero__title"><span>OMNI</span><span>GODDESS</span></h1>
+    <p class="hero__line">CREATE LIFE <b>✦</b> DESTROY WORLDS <b>✦</b> CHANGE EVERYTHING</p>
+  </div>
+
+  <section class="console" aria-label="Divine powers">
+    <div class="console__meta">
+      <span class="console__label">DIVINE CONSOLE</span>
+      <span class="status" id="status" aria-live="polite"><i></i> SHE IS EVERYTHING</span>
+    </div>
+    <div class="powers">
+      <button class="power power--create" type="button" data-power="create" aria-label="Create life">
+        <span class="power__key">1</span>
+        <span class="power__icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><path d="M16 3l2.6 8.1L27 14l-8.4 2.9L16 25l-2.6-8.1L5 14l8.4-2.9z" fill="currentColor"/><circle cx="25" cy="7" r="2" fill="currentColor" opacity=".7"/><circle cx="7" cy="24" r="1.6" fill="currentColor" opacity=".7"/></svg>
+        </span>
+        <span class="power__copy"><b>CREATE</b><small>LIFE BLOOMS</small></span>
+        <span class="power__sheen"></span>
+      </button>
+
+      <button class="power power--destroy" type="button" data-power="destroy" aria-label="Destroy worlds">
+        <span class="power__key">2</span>
+        <span class="power__icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><path d="M16 2l3 8 8-3-5 7 7 5-9 1-2 9-3-8-8 3 5-7-7-5 9-1z" fill="currentColor"/></svg>
+        </span>
+        <span class="power__copy"><b>DESTROY</b><small>WORLDS END</small></span>
+        <span class="power__sheen"></span>
+      </button>
+
+      <button class="power power--change" type="button" data-power="change" aria-label="Change everything">
+        <span class="power__key">3</span>
+        <span class="power__icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><path d="M27 10a11 11 0 10.5 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M27 4v7h-7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="16" cy="16" r="3.4" fill="currentColor"/></svg>
+        </span>
+        <span class="power__copy"><b>CHANGE</b><small>REALITY REWRITTEN</small></span>
+        <span class="power__sheen"></span>
+      </button>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track">
+      <span>SHE CAN CREATE LIFE <b>✦</b> SHE CAN DESTROY WORLDS <b>✦</b> SHE CAN CHANGE EVERYTHING <b>✦</b> SHE IS THE BEGINNING <b>✦</b> SHE IS THE END <b>✦</b></span>
+      <span>SHE CAN CREATE LIFE <b>✦</b> SHE CAN DESTROY WORLDS <b>✦</b> SHE CAN CHANGE EVERYTHING <b>✦</b> SHE IS THE BEGINNING <b>✦</b> SHE IS THE END <b>✦</b></span>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" aria-hidden="true">
+    <span class="toast__kicker">DIVINE ACT</span>
+    <strong class="toast__word" id="toast-word">CREATE</strong>
+    <span class="toast__sub" id="toast-sub">LIFE BLOOMS</span>
+  </div>
+
+  <div class="hint" id="hint">
+    <span class="hint__dot"></span>
+    <span id="hint-text">DRAG TO ORBIT · TAP THE GODDESS · 1 / 2 / 3</span>
+  </div>
+
+  <dialog class="modal" id="modal" aria-labelledby="modal-title">
+    <form method="dialog">
+      <button class="modal__close" aria-label="Close" value="close">×</button>
+      <p class="modal__kicker">THE ALMIGHTY INTERFACE</p>
+      <h2 id="modal-title">HOW TO<br /><em>WORSHIP</em></h2>
+      <ul class="modal__list">
+        <li><b>1</b><span><strong>CREATE</strong> — summon flowers and butterflies from the void.</span></li>
+        <li><b>2</b><span><strong>DESTROY</strong> — shatter reality. She puts it back. Usually.</span></li>
+        <li><b>3</b><span><strong>CHANGE</strong> — cycle the palette of existence.</span></li>
+        <li><b>✦</b><span><strong>TOUCH</strong> — drag to orbit the altar, tap the goddess for a blessing, scroll to zoom.</span></li>
+      </ul>
+      <p class="modal__note">Sound begins on your first interaction. Headphones recommended. Built with Three.js, zero stock assets, 100% handmade divinity.</p>
+      <button class="modal__cta" value="close">ENTER THE ALTAR</button>
+    </form>
+  </dialog>
+
+  <div class="loader" id="loader">
+    <div class="loader__sigil" aria-hidden="true">
+      <svg viewBox="0 0 64 64"><path d="M32 4l5.8 20L58 32l-20.2 8L32 60l-5.8-20L6 32l20.2-8z" fill="currentColor"/></svg>
+    </div>
+    <p class="loader__word">OMNIGODDESS</p>
+    <div class="loader__bar"><i id="loader-fill"></i></div>
+    <p class="loader__status" id="loader-status">SUMMONING THE ALMIGHTY</p>
+  </div>
+
+  <noscript><p class="noscript">This altar requires JavaScript and WebGL.</p></noscript>
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
